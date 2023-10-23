@@ -1,17 +1,20 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
   <title>Rede UFPI - Login</title>
 </head>
 <body>
   <div>
     <h1>LOGIN</h1>
-    <form action="{% url 'tela_principal' %}" method="get">
+    <form action="{% url 'home' %}" method="get">
       {% csrf_token %}
-      EMAIL<input name="email" type="text">
-      SENHA<input name="senha" type="text">
+      EMAIL:<input name="email" type="text">
+      SENHA:<input name="senha" type="text">
       <button>ENTRAR</button>
     </form>
   </div>
