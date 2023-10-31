@@ -1,62 +1,55 @@
 @charset "UTF-8";
 
-body{
+body {
     background: #8293F0;
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Code Pro', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
-div{
-    
-    width: 600px;
-    height: 400px;
-    flex-shrink: 0;
-    margin: auto;
 
+div {
+    width: 80%; /* Use uma porcentagem em vez de um valor fixo */
+    max-width: 600px; /* Adicionado um valor máximo para manter o layout consistente em telas maiores */
+    margin: auto;
     border-radius: 40px;
     background: #F0EDED;
+    padding: 20px;
+    text-align: center; /* Centralize o conteúdo horizontalmente */
 }
 
-h1{
-    margin-top: 150px;
-    text-align: center;
-    flex-shrink: 0;
+h1 {
+    margin-top: 20px; /* Reduzi a margem superior para telas menores */
     color: #000;
-
     padding-bottom: 10px;
-    font-family: Source Code Pro;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-size: 32px; /* Reduzi o tamanho da fonte para telas menores */
     text-transform: uppercase;
-    box-shadow: 0px 1px 0px;
-    
 }
-form{
 
-flex-shrink: 0;
-color: #000;
-
-margin-left: 50px;
-margin-right: 50px;
-font-family: Source Code Pro;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+form {
+    color: #000;
+    margin: 20px 0; /* Adicionei margem na parte superior e inferior */
+    font-size: 18px; /* Reduzi o tamanho da fonte para telas menores */
 }
-input{
-    
-    margin-top: 40px;
-    width: 410px;
+
+input {
+    margin-top: 10px; /* Reduzi a margem superior para telas menores */
+    width: 100%; /* Faça o input ocupar toda a largura disponível */
+    max-width: 410px; /* Adicionei um valor máximo para manter o input legível em telas maiores */
     height: 40px;
-    flex-shrink: 0;
     border-radius: 30px;
     background: #BFBFE6;
 }
-button{
-    margin-top: 40px;
-    margin-left: 220px;
-    margin-right: 220px;
-    padding: 10px;
+
+button {
+    margin-top: 10px; /* Reduzi a margem superior para telas menores */
+    padding: 10px 20px; /* Aumentei o padding para facilitar o clique em telas sensíveis ao toque */
     border-radius: 30px;
     background: #BFBFE6;
+    display: block; /* Faça o botão ocupar toda a largura disponível */
+    margin-left: auto;
+    margin-right: auto;
 }
