@@ -11,12 +11,12 @@
 <body>
   <div>
     <h1>CADASTRO</h1>
-    <form action="{% url 'home' %}" method="post">
+    <form method="POST">
       {% csrf_token %}
       EMAIL:<input name="email" type="text" id="email">
       SENHA:<input name="senha" type="text" id="senha">
       MATRÍCULA:<input name="matricula" type="text">
-      <button>CASDASTRAR</button>
+      <button type="submit">CASDASTRAR</button>
     </form>
   </div>
 </body>
