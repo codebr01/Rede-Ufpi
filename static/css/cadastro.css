@@ -13,7 +13,7 @@ body {
 
 div {
     width: 100%;
-    max-width: 750px;
+    max-width: 600px;
     height: auto; /* Permitir que a altura seja ajustada automaticamente com o conteúdo */
     border-radius: 40px;
     background: #F0EDED;
@@ -38,7 +38,7 @@ form {
 input {
     margin-top: 10px;
     width: 100%;
-    max-width: 410px;
+    max-width: 500px;
     height: 40px;
     border-radius: 30px;
     background: #BFBFE6;
@@ -52,6 +52,10 @@ input#email {
 
 input#senha {
     margin-left: 0; /* Removi a margem esquerda fixa */
+}
+
+input#matricula {
+    max-width: 450px;
 }
 
 button {

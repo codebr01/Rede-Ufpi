@@ -1,1 +1,63 @@
-<p>Usuario : {{ user.email }}</p>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/telainicial.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>tela inicial</title>
+</head>
+<body>
+    <div class="sidebar">
+        <span class="material-icons">perm_identity</span>
+        <p>Usuario : {{ user.email }}</p>
+        
+        <div class="sidebarOption">
+            <span class="material-icons">home</span>
+            <h2>Home</h2>
+        </div>
+        <div class="sidebarOption">
+            <span class="material-icons">search</span>
+            <h2>Explorar</h2>
+        </div>
+        <div class="sidebarOption">
+            <span class="material-icons">notifications</span>
+            <h2>notificações</h2>
+        </div>
+        <div class="sidebarOption">
+            <span class="material-icons">mail_outline</span>
+            <h2>Mensagens</h2>
+        </div>
+        <div class="sidebarOption">
+            <span class="material-icons">bookmark_border</span>
+            <h2>Salvos</h2>
+        </div>
+        <div class="sidebarOption">
+            <span class="material-icons">list_alt</span>
+            <h2>Grupos</h2>
+        </div>
+        <div class="sidebarOption">
+            <span class="material-icons">perm_identity</span>
+            <h2>Perfil</h2>
+        </div>
+        <div class="sidebarOption">
+            <span class="material-icons">more_horiz</span>
+            <h2>Mais</h2>
+        </div>
+
+        <button class="sidebar__post">Post</button>
+
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
