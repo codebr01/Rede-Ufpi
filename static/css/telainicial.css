@@ -47,3 +47,75 @@ body{
     color: white;
     transition: color 100ms ease-out;
 }
+
+.feed{
+    flex: 0.5;
+    border-right: 1px solid var(--site-background);
+    min-width: fit-content;
+    overflow: scroll;
+}
+
+.feed__header{
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+    border: 1px solid var(--site-background);
+    padding: 15px 20px;
+}
+
+.feed__header h2{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.feed::-webkit-scrollbar{
+    display: none;
+}
+
+.feed{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.postbox__input{
+    border-radius: 50%;
+    height: 40px;
+}
+
+.postBox{
+    padding-bottom: 10px;
+    border-bottom: 8px solid var(--site-background);
+    padding-right: 10px;
+}
+
+.postBox form{
+    display: flex;
+    flex-direction: column;
+}
+
+.postbox__input{
+    display: flex;
+    
+}
+
+.postbox__input input {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.postBox__postButton{
+    background-color: var(--site-color);
+    border: none;
+    color: white;
+    font-weight: 900;
+
+    border-radius: 30px;
+    width: 80px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: auto;
+}
