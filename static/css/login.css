@@ -13,7 +13,7 @@ body {
 
 div {
     width: 80%; /* Use uma porcentagem em vez de um valor fixo */
-    max-width: 600px; /* Adicionado um valor máximo para manter o layout consistente em telas maiores */
+    max-width: 500px; /* Adicionado um valor máximo para manter o layout consistente em telas maiores */
     margin: auto;
     border-radius: 40px;
     background: #F0EDED;
