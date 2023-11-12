@@ -11,7 +11,7 @@ body{
 body{
     display: flex;
     height: 100vh;
-    max-width: 1400px;
+    max-width: 1800px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
@@ -42,7 +42,7 @@ body{
 }
 
 .sidebarOption:hover{
-    background-color: var(--site-background);
+    background-color: var(--site-color);
     border-radius: 30px;
     color: white;
     transition: color 100ms ease-out;
@@ -52,8 +52,7 @@ body{
     flex: 0.5;
     border-right: 1px solid var(--site-background);
     min-width: fit-content;
-    overflow: scroll;
-}
+    overflow: scroll75}
 
 .feed__header{
     position: sticky;
@@ -118,4 +117,30 @@ body{
     height: 40px;
     margin-top: 20px;
     margin-left: auto;
+}
+
+.otherSidebar{
+    border-right: 1px solid var(--site-background);
+    flex: 0.2;
+    min-width: 250px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.grupos{
+
+    padding-bottom: 75%;
+    border: 1px solid var(--site-background);
+}
+.novidades{
+
+    padding-bottom: 75%;
+    margin-top: 50px;
+    border: 1px solid var(--site-background);
+}
+.conversas{
+
+    padding-bottom: 75%;
+    margin-top: 50px;
+    border: 1px solid var(--site-background);
 }
