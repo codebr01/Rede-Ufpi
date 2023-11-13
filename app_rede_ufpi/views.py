@@ -14,6 +14,7 @@ def login_view(request):
         user = authenticate(request, username=email, password=senha)
         if user is not None:
             login(request, user)
+            print('logado')
             return render(request, 'redeufpi/tela_inicial.html', {'user':user})
         else:
             return render(request, 'redeufpi/login.html')
