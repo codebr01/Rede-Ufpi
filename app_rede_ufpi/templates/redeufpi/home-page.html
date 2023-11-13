@@ -11,9 +11,34 @@
     <title>tela inicial</title>
 </head>
 <body>
+    <div class="otherSidebar">
+        <div class="grupos">
+            <h2>Grupos</h2>
+        </div>
+        <div class="novidades">
+            <h2>Novidades</h2>
+        </div>
+        <div class="conversas">
+            <h2>Conversas</h2>
+        </div>
+    </div>
+    <div class="feed">
+        <div class="feed__header">
+            <h2>Home</h2>
+        </div>
+
+        <div class="postBox">
+            <form>
+                <div class="postbox__input">
+                    <img src="" alt="">
+                    <input type="text" placeholder="O que está acontecendo"/>
+                </div>
+                <button class="postBox__postButton">Post</button>
+            </form>
+        </div>
+    </div>  
     <div class="sidebar">
-        <span class="material-icons">perm_identity</span>
-        <p>Usuario : {{ user.email }}</p>
+        <p class="usuario">Usuario : {{ user.email }}</p>
         
         <div class="sidebarOption">
             <span class="material-icons">home</span>
@@ -46,25 +71,6 @@
         <div class="sidebarOption">
             <span class="material-icons">more_horiz</span>
             <h2>Mais</h2>
-        </div>
-
-        <button class="sidebar__post">Post</button>
-
-    </div>
-    
-    <div class="feed">
-        <div class="feed__header">
-            <h2>Home</h2>
-        </div>
-
-        <div class="postBox">
-            <form>
-                <div class="postbox__input">
-                    <img src="" alt="">
-                    <input type="text" placeholder="O que está acontecendo"/>
-                </div>
-                <button class="postBox__postButton">Post</button>
-            </form>
         </div>
     </div>
     

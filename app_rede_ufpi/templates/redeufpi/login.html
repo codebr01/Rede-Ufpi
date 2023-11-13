@@ -5,20 +5,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/login.css' %}">
   <title>Rede UFPI - Login</title>
 </head>
 <body>
-  <div>
-    <h1>LOGIN</h1>
-      <form method="POST">
-        {% csrf_token %}
-        EMAIL:<input name="email" type="text">
-        SENHA:<input name="senha" type="text">
-        <button type="submit" >ENTRAR</button>
-      </form>
+  <div class="site">
+    <h1>Rede UFPI</h1>
   </div>
-  
+  <img src="{% static 'img/Connected.png' %}" alt="pessoas">
+<div class="container">
+    <div class="login-container">
+      <h2>Login</h2>
+      <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="input-group">
+            <label>Matrícula:</label>
+            <input type="matricula" id="matricula" name="matricula" />
+        </div>
+        <div class="input-group">
+            <label> Senha:</label>
+            <input type="senha" id="senha" name="senha" />
+        </div>
+        <a>Não pussui conta?</a>
+        <a href="{% url 'cadastro' %}" class="fazer-cadastro">Fazer cadastro</a>
+        <div class="input-group">
+            <button type="submit">ENTRAR</button>
+        </div>
+      </form>
+</div>
 </body>
 </html>
-
