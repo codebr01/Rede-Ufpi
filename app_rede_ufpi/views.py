@@ -5,16 +5,17 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def home(request):
-    return render(request, 'redeufpi/home.html')
+    return render(request, 'redeufpi/login.html')
 
 def login_view(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
+        print('post')
+        matricula = request.POST.get('matricula')
         senha = request.POST.get('senha')
-        user = authenticate(request, username=email, password=senha)
+        user = authenticate(request, username=matricula, password=senha)
         if user is not None:
             login(request, user)
-            return render(request, 'redeufpi/tela_inicial.html', {'user':user})
+            return render(request, 'redeufpi/home-page.html', {'user':user})
         else:
             return render(request, 'redeufpi/login.html')
     else:
@@ -22,11 +23,11 @@ def login_view(request):
 
 def cadastro(request):
     if request.method == 'POST':
+        matricula = request.POST.get('matricula')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-        matricula = request.POST.get('matricula')
         user = User.objects.create_user(username=matricula, password=senha, email=email)
         user.save()
-        return redirect('/')
+        return login_view(request)
     else:
         return render(request, 'redeufpi/cadastro.html')

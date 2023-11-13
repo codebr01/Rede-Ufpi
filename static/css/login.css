@@ -60,7 +60,7 @@ label {
     margin-bottom: 8px;
 }
 
-input[type="email"],
+input[type="matricula"],
 input[type="senha"] {
     width: 95%;
     padding: 10px;
