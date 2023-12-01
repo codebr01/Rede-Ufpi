@@ -17,20 +17,20 @@
         <h2>Cadastro</h2>
         <form method="POST">
           {% csrf_token %}
+          <div class="input-group">
+              <label for="matricula"> Matricula:</label>
+              <input type="matricula" id="matricula" name="matricula" required/>
+          </div>
             <div class="input-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required/>
+                <input type="email" id="email" name="email" />
             </div>
             <div class="input-group">
                 <label for="senha"> Senha:</label>
-                <input type="senha" id="senha" name="senha" required/>
+                <input type="senha" id="senha" name="senha" />
             </div>
             <div class="input-group">
-                <label for="matricula"> Matricula:</label>
-                <input type="matricula" id="matricula" name="matricula" required/>
-            </div>
-            <div class="input-group">
-                <a href="#" class="tem-conta">Ja tenho conta...</a>
+                <a href="{% url 'login' %}" class="tem-conta">Ja tenho conta...</a>
                 <button type="submit">Cadastrar</button>
         </div>
         </form>
