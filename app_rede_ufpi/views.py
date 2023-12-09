@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
+from .models import MainPost
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 @login_required
 def home(request):
@@ -31,3 +33,20 @@ def cadastro(request):
         return login_view(request)
     else:
         return render(request, 'redeufpi/cadastro.html')
+    
+def comunidades(request):
+    return render(request, 'redeufpi/comunidades.html')
+
+@login_required
+def home_page(request):
+    return render(request, 'redeufpi/home-page.html')
+
+@login_required
+def post(request):
+    if request.method == 'POST' and request.user.is_authenticated:
+        conteudo = request.POST.get('conteudo')
+        post = MainPost.objects.create(conteudo=conteudo, user=request.user)
+        post.save()
+        return render(request, 'redeufpi/post.html', {'post':post})
+    else:
+        return render(request, 'redeufpi/home-page.html')

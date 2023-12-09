@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <!DOCTYPE html>
@@ -7,7 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/telainicial.css' %}">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Tela inicial</title>
 </head>
@@ -15,7 +13,7 @@
     <header>
       <div class="wraper-header">
         <div class="logo">
-          <img src="css/ufpi-icone1.png" alt="">
+          <img src="{% static 'img/ufpi-icone1.png' %}" alt="ufpi-icone1">
         </div>
         <div class="home-btn">
           <p>
@@ -44,9 +42,10 @@
       <div class="wraper-main">
         <div class="posts">
           <div class="postBox">
-              <form>
+              <form action="{% url 'post' %}" method="POST">
+                  {% csrf_token %}
                   <div class="postbox__input">
-                      <input type="text" placeholder="Criar post"/>
+                      <input type="text" name = "conteudo" placeholder="Criar post"/>
                   </div>
                   <button class="postBox__postButton">Post</button>
               </form>
@@ -63,37 +62,8 @@
                 <p><b>Pessoa</b> -Postado por pessoa 10h atras</p>
                 <h3>Hello world</h3>
               </div>
-  
             </div>
           </div>
-          <div class="post-single">
-            <div class="post-sidebar">
-               <i class="fa-solid fa-arrow-up"></i>
-               <p><b>19k</b></p>
-               <i class="fa-solid fa-arrow-down"></i>
-            </div>
-            <div class="post-content">
-              <div class="post-content-text">
-                <p><b>Pessoa</b> -Postado por pessoa 10h atras</p>
-                <h3>Hello world</h3>
-              </div>
-            </div>
-          </div>
-          <div class="post-single">
-            <div class="post-sidebar">
-               <i class="fa-solid fa-arrow-up"></i>
-               <p><b>19k</b></p>
-               <i class="fa-solid fa-arrow-down"></i>
-            </div>
-            <div class="post-content">
-              <div class="post-content-text">
-                <p><b>Pessoa</b> -Postado por pessoa 10h atras</p>
-                <h3>Hello world</h3>
-              </div>
-            
-            </div>
-          </div>
-  
         </div>
         <div class="sidebar">
           <div class="comunidades">

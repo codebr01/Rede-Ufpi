@@ -9,4 +9,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('redeufpi/login.html', views.login_view, name='login'),
     path('redeufpi/cadastro.html', views.cadastro, name='cadastro'),
+    path('redeufpi/comunidades.html', views.comunidades, name='comunidades'),
+    path('redeufpi/home-page.html', views.home_page, name='home-page'),
+    path('redeufpi/post.html', views.post, name='post'),
 ]
