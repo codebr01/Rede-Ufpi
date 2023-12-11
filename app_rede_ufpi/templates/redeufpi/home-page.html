@@ -49,19 +49,38 @@
               </form>
           </div>
           <br>
+          {% for post in posts %}
           <div class="post-single">
             <div class="post-sidebar">
-               <i class="fa-solid fa-arrow-up"></i>
-               <p><b>19k</b></p>
-               <i class="fa-solid fa-arrow-down"></i>
+              <i class="fa-solid fa-arrow-up"></i>
+              <p><b>19k</b></p>
+              <i class="fa-solid fa-arrow-down"></i>
             </div>
             <div class="post-content">
               <div class="post-content-text">
-                <p><b>Pessoa</b> -Postado por pessoa 10h atras</p>
-                <h3>Hello world</h3>
+                <p><b>{{post.user_id}}</b></p>
+                <h3>{{post.conteudo}}</h3>
               </div>
             </div>
           </div>
+          {% endfor %}
+        </div>
+        <div class="pagination">
+          <span class="step-links">
+            {% if posts.has_previous %}
+              <a href="?page={{ posts.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+            {% endif %}
+
+            {% if posts.paginator.num_pages %}
+              <span class="currente">
+                {{ posts.number }} de {{ posts.paginator.num_pages }}
+              </span>
+            {% endif %}
+
+            {% if posts.has_next %}
+              <a href="?page={{ posts.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+            {% endif %}
+          </span>
         </div>
         <div class="sidebar">
           <div class="comunidades">
