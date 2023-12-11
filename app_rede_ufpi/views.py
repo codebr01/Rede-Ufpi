@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
+from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from .models import MainPost
 from django.contrib.auth import authenticate, login
@@ -11,13 +12,14 @@ def home(request):
 
 def login_view(request):
     if request.method == 'POST':
-        print('post')
+
         matricula = request.POST.get('matricula')
         senha = request.POST.get('senha')
         user = authenticate(request, username=matricula, password=senha)
+
         if user is not None:
             login(request, user)
-            return render(request, 'redeufpi/home-page.html', {'user':user})
+            return redirect('home-page')
         else:
             return render(request, 'redeufpi/login.html')
     else:
@@ -39,11 +41,18 @@ def comunidades(request):
 
 @login_required
 def home_page(request):
-    return render(request, 'redeufpi/home-page.html')
+
+    posts_list = MainPost.objects.all()
+    
+    paginator = Paginator(posts_list, 4)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+    
+    return render(request, 'redeufpi/home-page.html', {'posts':posts})
 
 @login_required
 def post(request):
-    if request.method == 'POST' and request.user.is_authenticated:
+    if request.method == 'POST':
         conteudo = request.POST.get('conteudo')
         post = MainPost.objects.create(conteudo=conteudo, user=request.user)
         post.save()
