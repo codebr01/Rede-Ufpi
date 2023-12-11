@@ -11,6 +11,7 @@ def home(request):
     return render(request, 'redeufpi/login.html')
 
 def login_view(request):
+    error_message = ''
     if request.method == 'POST':
 
         matricula = request.POST.get('matricula')
@@ -21,9 +22,11 @@ def login_view(request):
             login(request, user)
             return redirect('home-page')
         else:
-            return render(request, 'redeufpi/login.html')
+            error_message = 'Matrícula ou senha inválidos'
+            return render(request, 'redeufpi/login.html', {'error_message':error_message})
     else:
-        return render(request, 'redeufpi/login.html')
+        error_message = 'Preencha os campos corretamente'
+        return render(request, 'redeufpi/login.html', {'error_message':error_message})
 
 def cadastro(request):
     if request.method == 'POST':
@@ -35,7 +38,8 @@ def cadastro(request):
         return login_view(request)
     else:
         return render(request, 'redeufpi/cadastro.html')
-    
+
+@login_required    
 def comunidades(request):
     return render(request, 'redeufpi/comunidades.html')
 
