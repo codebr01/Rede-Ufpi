@@ -52,14 +52,9 @@
           <br>
           {% for post in posts %}
           <div class="post-single">
-            <div class="post-sidebar">
-              <i class="fa-solid fa-arrow-up"></i>
-              <p><b>19k</b></p>
-              <i class="fa-solid fa-arrow-down"></i>
-            </div>
             <div class="post-content">
               <div class="post-content-text">
-                <p><b>{{post.user_id}}</b></p>
+                <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user_id}}</b>  Postado no dia xx/xx/xx"</p>
                 <h3>{{post.conteudo}}</h3>
               </div>
             </div>
