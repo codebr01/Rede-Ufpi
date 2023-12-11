@@ -72,7 +72,7 @@ input[type="senha"], input[type="matricula"] {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #ba2839;
+    background-color: #28ba73;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -81,7 +81,7 @@ button {
 }
 
 button:hover {
-    background-color: #c22a3c;
+    background-color: #1b784b;
 }
 
 .tem-conta{
@@ -90,6 +90,10 @@ button:hover {
     text-decoration: none;
     color: #eee;
     margin-bottom: 10px;
+}
+.tem-conta:hover{
+    cursor: pointer;
+    color: #28ba73;;
 }
 
 @media screen and (max-width: 800px){

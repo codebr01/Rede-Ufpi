@@ -21,11 +21,11 @@
         {% csrf_token %}
         <div class="input-group">
             <label>Matrícula:</label>
-            <input type="matricula" id="matricula" name="matricula" />
+            <input type="matricula" id="matricula" name="matricula" placeholder="Digite sua matricula"/>
         </div>
         <div class="input-group">
             <label> Senha:</label>
-            <input type="senha" id="senha" name="senha" />
+            <input type="senha" id="senha" name="senha" placeholder="Digite sua senha"/>
         </div>
         <a>Não possui conta?</a>
         <a href="{% url 'cadastro' %}" class="fazer-cadastro">Fazer cadastro</a>
