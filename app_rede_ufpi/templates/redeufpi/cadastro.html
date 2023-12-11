@@ -19,15 +19,15 @@
           {% csrf_token %}
           <div class="input-group">
               <label for="matricula"> Matricula:</label>
-              <input type="matricula" id="matricula" name="matricula" required/>
+              <input type="matricula" id="matricula" name="matricula" placeholder="Digite seu número de matricula" required/>
           </div>
             <div class="input-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" />
+                <input type="email" id="email" name="email" placeholder="Digite seu email"/>
             </div>
             <div class="input-group">
                 <label for="senha"> Senha:</label>
-                <input type="senha" id="senha" name="senha" />
+                <input type="senha" id="senha" name="senha" placeholder="Crie uma senha"/>
             </div>
             <div class="input-group">
                 <a href="{% url 'login' %}" class="tem-conta">Ja tenho conta...</a>

@@ -73,7 +73,7 @@ input[type="senha"] {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #ba2839;
+    background-color: #28ba73;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -82,7 +82,7 @@ button {
 }
 
 button:hover {
-    background-color: #c22a3c;
+    background-color: #1b784b;
 }
 
 .esqueceu-senha {
@@ -92,12 +92,18 @@ button:hover {
     color: #eee;
     margin-bottom: 10px;
 }
+
 .fazer-cadastro{
     display: inline-block;
     text-align: left;
     text-decoration: none;
     color: #eee;
     margin-bottom: 10px;
+}
+
+.fazer-cadastro:hover{
+    cursor: pointer;
+    color: #28ba73;
 }
 
 img {
