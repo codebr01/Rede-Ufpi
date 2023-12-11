@@ -32,6 +32,7 @@
         <div class="notifications">
           <i class="fa-solid fa-comment"></i>
           <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </div>
       </div>
     </header>
@@ -68,7 +69,7 @@
         <div class="pagination">
           <span class="step-links">
             {% if posts.has_previous %}
-              <a href="?page={{ posts.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+              <a class="paginas" href="?page={{ posts.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
             {% endif %}
 
             {% if posts.paginator.num_pages %}
@@ -78,7 +79,7 @@
             {% endif %}
 
             {% if posts.has_next %}
-              <a href="?page={{ posts.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+              <a class="paginas" href="?page={{ posts.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
             {% endif %}
           </span>
         </div>
