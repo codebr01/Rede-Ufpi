@@ -12,4 +12,5 @@ urlpatterns = [
     path('redeufpi/comunidades.html', views.comunidades, name='comunidades'),
     path('redeufpi/home-page.html', views.home_page, name='home-page'),
     path('redeufpi/post.html', views.post, name='post'),
+    path('logout/', views.logout_view, name='logout'),
 ]
