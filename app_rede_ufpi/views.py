@@ -27,6 +27,10 @@ def login_view(request):
     else:
         return render(request, 'redeufpi/login.html')
 
+def logout_view(request):
+    logout(request)
+    return redirect('login')
+
 def cadastro(request):
     if request.method == 'POST':
         matricula = request.POST.get('matricula')
@@ -55,10 +59,19 @@ def home_page(request):
 
 @login_required
 def post(request):
+    error_message = ''
     if request.method == 'POST' and request.user.is_authenticated:
         conteudo = request.POST.get('conteudo')
-        post = MainPost.objects.create(conteudo=conteudo, user=request.user)
-        post.save()
-        return render(request, 'redeufpi/post.html', {'post':post})
+        if conteudo != '':
+            post = MainPost.objects.create(conteudo=conteudo, user=request.user)
+            post.save()
+            return redirect('home-page')
+        else:
+            error_message = 'Não é possível criar um post vazio'
+            posts_list = MainPost.objects.all()
+            paginator = Paginator(posts_list, 4)
+            page = request.GET.get('page')
+            posts = paginator.get_page(page)
+            return render(request, 'redeufpi/home-page.html', {'error_message':error_message, 'posts':posts})
     else:
         return redirect('login')

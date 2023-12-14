@@ -32,7 +32,7 @@
         <div class="notifications">
           <i class="fa-solid fa-comment"></i>
           <i class="fa-solid fa-user"></i>
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
       </div>
     </header>
@@ -95,7 +95,14 @@
         </div>
       </div>
     </section>
-  
+    {% if error_message %}
+    <script>
+    window.onload = function() {
+        if ('{{ error_message }}'.trim() !== '') {
+            alert('{{ error_message }}');
+        }
+    };
+    </script>
+    {% endif %}
   </body>
   </html>
-  
