@@ -79,7 +79,7 @@
           </div>
         </div>
         <div class="sidebar">
-          <div class="comunidades">
+          <div class="comunidades"> 
             <h2>Comunidades</h2>
             {% if comunidades %}
               {% for comunidade in comunidades %}
@@ -91,7 +91,7 @@
             {% else %}
               <p>Não há nenhuma comunidade</p>
             {% endif %}
-            <a href="{% url 'criar-comunidade' %}"><button class="criar-comunidade">Criar Comunidade</button></a>
+            <button class="criar-comunidade"><a href="{% url 'criar-comunidade' %}">Criar Comunidade</a></button>
             <button class="view-all">Ver todos</button>
           </div>
         </div>
