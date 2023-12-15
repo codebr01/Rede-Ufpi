@@ -26,3 +26,18 @@ class MainPost(models.Model):
         get_user_model() , 
         on_delete=models.CASCADE
     )
+
+class Comunidades(models.Model):
+
+    id = models.AutoField(
+        primary_key=True
+    )
+
+    nome = models.CharField(
+        max_length=255
+    )
+
+    user = models.ForeignKey(
+        get_user_model() ,
+        on_delete=models.CASCADE
+    )
