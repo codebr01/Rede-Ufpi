@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede UFPI - Criar Comunidade</title>
+</head>
+<body>
+    <form action="{% url 'criar-comunidade' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="nome" placeholder="Nome da comunidade">
+        <button class="postBox__postButton">Criar</button>
+    </form>
+    <p><a href="{% url 'home-page' %}">VOLTAR</a></p>
+    {% if error_message %}
+    <script>
+    window.onload = function() {
+        if ('{{ error_message }}'.trim() !== '') {
+            alert('{{ error_message }}');
+        }
+    };
+    </script>
+    {% endif %}
+</body>
+</html>
