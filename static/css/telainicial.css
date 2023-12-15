@@ -132,6 +132,7 @@ header{
 
 .comunidades button.criar-comunidade{
     width: 90%;
+    text-decoration: none;
     display: block;
     margin: 10px;
     height: 30px;

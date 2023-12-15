@@ -82,7 +82,7 @@ def post(request):
 @login_required
 def criar_comunidade(request):
     if request.method == 'POST':
-        nome = request.POST.get('nome')
+        nome = request.POST.get('nome-comunidade')
         if nome != '':
             comunidade = Comunidades.objects.create(nome=nome, user=request.user)
             comunidade.save()
