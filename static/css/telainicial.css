@@ -131,6 +131,18 @@ header{
     border-radius: 10px;
 }
 
+.comunidades button.criar-comunidade{
+    width: 90%;
+    text-decoration: none;
+    display: block;
+    margin: 10px;
+    height: 30px;
+    border: 0;
+    background-color: #28ba73;
+    color: white;
+    border-radius: 10px;
+}
+
 .post-single{
     display: flex;
     background-color: rgba(255, 255, 255, 0.5);
@@ -195,6 +207,9 @@ header{
 
 .pagination {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .step-links{

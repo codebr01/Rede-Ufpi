@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/telainicial.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Tela inicial</title>
+  <title>Rede UFPI - Home</title>
 </head>
 <body>
     <header>
@@ -31,7 +31,7 @@
         <div class="notifications">
           <i class="fa-solid fa-comment"></i>
           <i class="fa-solid fa-user"></i>
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
       </div>
     </header>
@@ -59,38 +59,52 @@
             </div>
           </div>
           {% endfor %}
-        </div>
-        <div class="pagination">
-          <span class="step-links">
-            {% if posts.has_previous %}
-              <a class="paginas" href="?page={{ posts.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
-            {% endif %}
-
-            {% if posts.paginator.num_pages %}
-              <span class="currente">
-                {{ posts.number }} de {{ posts.paginator.num_pages }}
-              </span>
-            {% endif %}
-
-            {% if posts.has_next %}
-              <a class="paginas" href="?page={{ posts.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
-            {% endif %}
-          </span>
+          <div class="pagination">
+            <span class="step-links">
+              {% if posts.has_previous %}
+                <a class="paginas" href="?page={{ posts.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
+              {% endif %}
+  
+              {% if posts.paginator.num_pages %}
+                <span class="currente">
+                  {{ posts.number }} de {{ posts.paginator.num_pages }}
+                </span>
+              {% endif %}
+  
+              {% if posts.has_next %}
+                <a class="paginas" href="?page={{ posts.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
+              {% endif %}
+            </span>
+          </div>
         </div>
         <div class="sidebar">
-          <div class="comunidades">
+          <div class="comunidades"> 
             <h2>Comunidades</h2>
-            <div class="comunidade-single">
-              <p>Sistemas de informação</p>
-              <p><button><a href="comunidades.html">Entrar</a></button></p>
-            </div>
+            {% if comunidades %}
+              {% for comunidade in comunidades %}
+              <div class="comunidade-single">
+                <p>{{ comunidade.nome }}</p>
+                <p><button><a href="{% url 'comunidades' %}">Entrar</a></button></p>
+              </div>
+              {% endfor %}
+            {% else %}
+              <p>Não há nenhuma comunidade</p>
+            {% endif %}
+            <button class="criar-comunidade"><a href="{% url 'criar-comunidade' %}">Criar Comunidade</a></button>
             <button class="view-all">Ver todos</button>
             <button class="view-all">Criar comunidade</button>
           </div>
         </div>
       </div>
     </section>
-  
+    {% if error_message %}
+    <script>
+    window.onload = function() {
+        if ('{{ error_message }}'.trim() !== '') {
+            alert('{{ error_message }}');
+        }
+    };
+    </script>
+    {% endif %}
   </body>
   </html>
-  
