@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
 from .models import MainPost
@@ -25,8 +25,7 @@ def login_view(request):
             error_message = 'Matrícula ou senha inválidos'
             return render(request, 'redeufpi/login.html', {'error_message':error_message})
     else:
-        error_message = 'Preencha os campos corretamente'
-        return render(request, 'redeufpi/login.html', {'error_message':error_message})
+        return render(request, 'redeufpi/login.html')
 
 def cadastro(request):
     if request.method == 'POST':
@@ -56,10 +55,10 @@ def home_page(request):
 
 @login_required
 def post(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         conteudo = request.POST.get('conteudo')
         post = MainPost.objects.create(conteudo=conteudo, user=request.user)
         post.save()
         return render(request, 'redeufpi/post.html', {'post':post})
     else:
-        return render(request, 'redeufpi/home-page.html')
+        return redirect('login')

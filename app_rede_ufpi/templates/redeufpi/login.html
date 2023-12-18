@@ -36,7 +36,11 @@
 </div>
 {% if error_message %}
 <script>
-alert('{{ error_message }}');
+window.onload = function() {
+    if ('{{ error_message }}'.trim() !== '') {
+        alert('{{ error_message }}');
+    }
+};
 </script>
 {% endif %}
 </body>
