@@ -68,6 +68,7 @@ header{
 .posts{
     padding-left: 24%;
     width:69%;
+    overflow-y: auto;
 }
 
 .sidebar{
@@ -227,5 +228,10 @@ header{
 }
 
 .pagination{
+    color: white;
+}
+
+a{
+    text-decoration: none;
     color: white;
 }
