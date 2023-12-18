@@ -41,3 +41,16 @@ class Comunidades(models.Model):
         get_user_model() ,
         on_delete=models.CASCADE
     )
+
+class Post(models.Model):
+    id = models.AutoField(primary_key=True)
+    conteudo = models.TextField()
+    comunidade = models.ForeignKey(
+        'Comunidades',
+        on_delete=models.CASCADE,
+        related_name='posts'
+    )
+    user = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE
+    )

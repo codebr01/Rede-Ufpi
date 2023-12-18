@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
-from .models import MainPost, Comunidades
+from .models import MainPost, Comunidades, Post
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.contrib import messages
 
 @login_required
 def home(request):
@@ -92,3 +93,40 @@ def criar_comunidade(request):
             return render(request, 'redeufpi/criar-comunidade.html', {'error_message':error_message})
     else:
         return render(request, 'redeufpi/criar-comunidade.html')
+
+@login_required
+def perfil(request):
+    return render(request, 'redeufpi/perfil.html')
+
+@login_required
+def comunidade(request, name):
+
+    comunidades = Comunidades.objects.all()
+
+    comunidade = Comunidades.objects.get(nome=name)
+    posts_list = Post.objects.filter(comunidade=comunidade)
+
+    paginator = Paginator(posts_list, 4)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+
+    return render(request, 'redeufpi/comunidade.html', {'comunidade':comunidade, 'comunidades':comunidades, 'posts':posts})
+
+@login_required
+def comunidade_criar_post(request, name):
+    error_message = ''
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            conteudo = request.POST.get('conteudo')
+            comunidade = Comunidades.objects.get(nome=name)
+            if conteudo != '':
+                post = Post.objects.create(conteudo=conteudo, user=request.user, comunidade=comunidade)
+                post.save()
+                return redirect('comunidade', name=comunidade.nome)
+            else:
+                print(comunidade.nome)
+                error_message = 'Não é possível criar um post vazio'
+                messages.error(request, error_message)
+                return redirect('comunidade', name=comunidade.nome)
+    else:
+        return redirect('login')

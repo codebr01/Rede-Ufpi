@@ -15,7 +15,7 @@
 <div class="container">
     <div class="login-container">
         <h2>Cadastro</h2>
-        <form method="POST">
+        <form action="{% url 'cadastro' %}" method="POST">
           {% csrf_token %}
           <div class="input-group">
               <label for="matricula"> Matricula:</label>
