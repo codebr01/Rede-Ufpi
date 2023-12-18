@@ -230,3 +230,8 @@ header{
 .pagination{
     color: white;
 }
+
+a{
+    text-decoration: none;
+    color: white;
+}
