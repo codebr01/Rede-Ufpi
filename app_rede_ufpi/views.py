@@ -72,11 +72,12 @@ def post(request):
                 return redirect('home-page')
             else:
                 error_message = 'Não é possível criar um post vazio'
-                posts_list = MainPost.objects.all()
-                paginator = Paginator(posts_list, 4)
-                page = request.GET.get('page')
-                posts = paginator.get_page(page)
-                return render(request, 'redeufpi/home-page.html', {'error_message':error_message, 'posts':posts})
+                messages.error(request, error_message)
+                # posts_list = MainPost.objects.all()
+                # paginator = Paginator(posts_list, 4)
+                # page = request.GET.get('page')
+                # posts = paginator.get_page(page)
+                return redirect('home-page')
     else:
         return redirect('login')
 
@@ -124,7 +125,6 @@ def comunidade_criar_post(request, name):
                 post.save()
                 return redirect('comunidade', name=comunidade.nome)
             else:
-                print(comunidade.nome)
                 error_message = 'Não é possível criar um post vazio'
                 messages.error(request, error_message)
                 return redirect('comunidade', name=comunidade.nome)

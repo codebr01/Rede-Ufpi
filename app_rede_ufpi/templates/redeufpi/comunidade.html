@@ -40,6 +40,11 @@
       <div class="wraper-main">
         <div class="posts">
           <div class="postBox">
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                  <p>{{ message }}</p>
+              </div>
+            {% endfor %}
             <form action="{{comunidade.nome}}/criar-post" method="POST">
                 {% csrf_token %}
                 <div class="postbox__input">
