@@ -34,10 +34,12 @@ def logout_view(request):
 
 def cadastro(request):
     if request.method == 'POST':
+        nome = request.POST.get('nome')
+        sobrenome = request.POST.get('sobrenome')
         matricula = request.POST.get('matricula')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-        user = User.objects.create_user(username=matricula, password=senha, email=email)
+        user = User.objects.create_user(username=matricula, password=senha, email=email, first_name=nome, last_name=sobrenome)
         user.save()
         return login_view(request)
     else:
@@ -51,7 +53,7 @@ def comunidades(request):
 @login_required
 def home_page(request):
 
-    posts_list = MainPost.objects.all()
+    posts_list = MainPost.objects.all().order_by('-data')
     comunidades = Comunidades.objects.all()
     
     paginator = Paginator(posts_list, 4)
@@ -105,7 +107,7 @@ def comunidade(request, name):
     comunidades = Comunidades.objects.all()
 
     comunidade = Comunidades.objects.get(nome=name)
-    posts_list = Post.objects.filter(comunidade=comunidade)
+    posts_list = Post.objects.filter(comunidade=comunidade).order_by('-data')
 
     paginator = Paginator(posts_list, 4)
     page = request.GET.get('page')

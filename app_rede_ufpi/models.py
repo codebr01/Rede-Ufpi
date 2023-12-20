@@ -27,6 +27,10 @@ class MainPost(models.Model):
         on_delete=models.CASCADE
     )
 
+    data = models.DateTimeField(
+        auto_now_add=True
+    )
+
 class Comunidades(models.Model):
 
     id = models.AutoField(
@@ -53,4 +57,8 @@ class Post(models.Model):
     user = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE
+    )
+
+    data = models.DateTimeField(
+        auto_now_add=True
     )
