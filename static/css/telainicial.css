@@ -81,6 +81,7 @@ header{
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(2px);
     border: 1.5px solid #eee;
+    border-radius: 5px;
 }
 
 .comunidades h2{
@@ -191,6 +192,10 @@ header{
     box-sizing: border-box;
 }
 
+.postbox__input{
+    position: relative;
+}
+
 .postBox__postButton{
     position: absolute;
     top: 50%;
@@ -234,4 +239,11 @@ header{
 a{
     text-decoration: none;
     color: white;
+}
+
+.messages{
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 1px solid white;
 }

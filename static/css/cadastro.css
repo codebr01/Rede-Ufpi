@@ -60,7 +60,7 @@ label {
 }
 
 input[type="email"],
-input[type="senha"], input[type="matricula"] {
+input[type="password"],input[type="text"] {
     width: 95%;
     padding: 10px;
     border: 1px solid #ccc;

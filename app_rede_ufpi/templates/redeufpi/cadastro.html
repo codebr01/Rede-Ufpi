@@ -18,8 +18,16 @@
         <form action="{% url 'cadastro' %}" method="POST">
           {% csrf_token %}
           <div class="input-group">
+            <label for="nome"> Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required/>
+          </div>
+          <div class="input-group">
+            <label for="sobrenome"> Sobrenome:</label>
+            <input type="text" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome" required/>
+          </div>
+          <div class="input-group">
               <label for="matricula"> Matricula:</label>
-              <input type="matricula" id="matricula" name="matricula" placeholder="Digite seu número de matricula" required/>
+              <input type="text" id="matricula" name="matricula" placeholder="Digite seu número de matricula" required/>
           </div>
             <div class="input-group">
                 <label for="email">Email:</label>
@@ -27,7 +35,7 @@
             </div>
             <div class="input-group">
                 <label for="senha"> Senha:</label>
-                <input type="senha" id="senha" name="senha" placeholder="Crie uma senha"/>
+                <input type="password" id="senha" name="senha" placeholder="Crie uma senha"/>
             </div>
             <div class="input-group">
                 <a href="{% url 'login' %}" class="tem-conta">Ja tenho conta...</a>

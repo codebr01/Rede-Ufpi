@@ -41,16 +41,18 @@
         <div class="posts">
           <div class="postBox">
               {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
+                <div class="messages">
+                  <div class="alert alert-{{ message.tags }}">
                     <p>{{ message }}</p>
+                  </div>
                 </div>
               {% endfor %}
               <form action="{% url 'post' %}" method="POST">
                   {% csrf_token %}
                   <div class="postbox__input">
                       <input type="text" name = "conteudo" placeholder="Criar post"/>
+                      <button class="postBox__postButton">Post</button>
                   </div>
-                  <button class="postBox__postButton">Post</button>
               </form>
           </div>
           <br>
@@ -58,7 +60,7 @@
           <div class="post-single">
             <div class="post-content">
               <div class="post-content-text">
-                <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user_id}}</b>  Postado no dia xx/xx/xx"</p>
+                <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user.first_name}} {{post.user.last_name}}</b>  Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
                 <h3>{{post.conteudo}}</h3>
               </div>
             </div>
