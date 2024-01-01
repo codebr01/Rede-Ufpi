@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/telainicial.css' %}">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Rede UFPI - Home</title>
-</head>
 <body>
     <header>
       <div class="wraper-header">
@@ -18,11 +17,12 @@
         <div class="home-btn">
           <p>
             <span>
-              <i class="fa-solid fa-house"></i>
-              Home
+              <a href="{% url 'home-page' %}"><i class="fa-solid fa-house"></i></a>
+              Home <i class="fa-solid fa-arrow-right"></i> {{comunidade.nome}}
             </span>
           </p>
           <p>
+            <i class="fa-solid fa-chevron-down"></i>
           </p>
         </div>
         <div class="search">
@@ -40,20 +40,20 @@
       <div class="wraper-main">
         <div class="posts">
           <div class="postBox">
-              {% for message in messages %}
+            {% for message in messages %}
                 <div class="messages">
                   <div class="alert alert-{{ message.tags }}">
                     <p>{{ message }}</p>
                   </div>
                 </div>
-              {% endfor %}
-              <form action="{% url 'post' %}" method="POST">
-                  {% csrf_token %}
-                  <div class="postbox__input">
-                      <input type="text" name = "conteudo" placeholder="Criar post"/>
-                      <button class="postBox__postButton">Post</button>
-                  </div>
-              </form>
+            {% endfor %}
+            <form action="{{comunidade.nome}}/criar-post" method="POST">
+                {% csrf_token %}
+                <div class="postbox__input">
+                    <input type="text" name = "conteudo" placeholder="Criar post"/>
+                    <button class="postBox__postButton">Post</button>
+                </div>
+            </form>
           </div>
           <br>
           {% for post in posts %}
@@ -85,19 +85,18 @@
           </div>
         </div>
         <div class="sidebar">
-          <div class="comunidades"> 
+          <div class="comunidades">
             <h2>Comunidades</h2>
             {% if comunidades %}
               {% for comunidade in comunidades %}
-              <div class="comunidade-single">
-                <p>{{ comunidade.nome }}</p>
-                <p><button><a href="comunidade/{{comunidade.nome}}">Entrar</a></button></p>
-              </div>
+                <div class="comunidade-single">
+                  <p>{{ comunidade.nome }}</p>
+                  <p><button><a href="{{comunidade.nome}}">Entrar</a></button></p>
+                </div>
               {% endfor %}
             {% else %}
-              <p>Não há nenhuma comunidade</p>
+              <p>Nenhuma comunidade encontrada</p>
             {% endif %}
-            <button class="view-all"><a href="{% url 'criar-comunidade' %}">Criar Comunidade</a></button>
             <button class="view-all">Ver todos</button>
           </div>
         </div>

@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
-from .models import MainPost, Comunidades
+from .models import MainPost, Comunidades, Post
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.contrib import messages
 
 @login_required
 def home(request):
@@ -33,10 +34,12 @@ def logout_view(request):
 
 def cadastro(request):
     if request.method == 'POST':
+        nome = request.POST.get('nome')
+        sobrenome = request.POST.get('sobrenome')
         matricula = request.POST.get('matricula')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-        user = User.objects.create_user(username=matricula, password=senha, email=email)
+        user = User.objects.create_user(username=matricula, password=senha, email=email, first_name=nome, last_name=sobrenome)
         user.save()
         return login_view(request)
     else:
@@ -50,7 +53,7 @@ def comunidades(request):
 @login_required
 def home_page(request):
 
-    posts_list = MainPost.objects.all()
+    posts_list = MainPost.objects.all().order_by('-data')
     comunidades = Comunidades.objects.all()
     
     paginator = Paginator(posts_list, 4)
@@ -71,11 +74,12 @@ def post(request):
                 return redirect('home-page')
             else:
                 error_message = 'Não é possível criar um post vazio'
-                posts_list = MainPost.objects.all()
-                paginator = Paginator(posts_list, 4)
-                page = request.GET.get('page')
-                posts = paginator.get_page(page)
-                return render(request, 'redeufpi/home-page.html', {'error_message':error_message, 'posts':posts})
+                messages.error(request, error_message)
+                # posts_list = MainPost.objects.all()
+                # paginator = Paginator(posts_list, 4)
+                # page = request.GET.get('page')
+                # posts = paginator.get_page(page)
+                return redirect('home-page')
     else:
         return redirect('login')
 
@@ -92,3 +96,39 @@ def criar_comunidade(request):
             return render(request, 'redeufpi/criar-comunidade.html', {'error_message':error_message})
     else:
         return render(request, 'redeufpi/criar-comunidade.html')
+
+@login_required
+def perfil(request):
+    return render(request, 'redeufpi/perfil.html')
+
+@login_required
+def comunidade(request, name):
+
+    comunidades = Comunidades.objects.all()
+
+    comunidade = Comunidades.objects.get(nome=name)
+    posts_list = Post.objects.filter(comunidade=comunidade).order_by('-data')
+
+    paginator = Paginator(posts_list, 4)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+
+    return render(request, 'redeufpi/comunidade.html', {'comunidade':comunidade, 'comunidades':comunidades, 'posts':posts})
+
+@login_required
+def comunidade_criar_post(request, name):
+    error_message = ''
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            conteudo = request.POST.get('conteudo')
+            comunidade = Comunidades.objects.get(nome=name)
+            if conteudo != '':
+                post = Post.objects.create(conteudo=conteudo, user=request.user, comunidade=comunidade)
+                post.save()
+                return redirect('comunidade', name=comunidade.nome)
+            else:
+                error_message = 'Não é possível criar um post vazio'
+                messages.error(request, error_message)
+                return redirect('comunidade', name=comunidade.nome)
+    else:
+        return redirect('login')
