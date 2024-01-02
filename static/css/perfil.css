@@ -83,13 +83,13 @@ header {
 }
 
 .profile-details {
-    max-width: 400px; /* Adjust the max-width as needed */
+    max-width: 400px;
 }
 
 .profile-actions {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
+    justify-content: flex-end; 
 }
 
 .profile-actions button {
@@ -112,7 +112,7 @@ header {
 }
 
 .profile-posts {
-    max-height: 400px; /* Adjust the max-height as needed */
+    max-height: 400px; 
     overflow-y: auto;
     margin-top: 20px;
 }
@@ -134,12 +134,10 @@ header {
     padding: 10px;
 }
 
-/* Other styles remain unchanged */
-
 .profile-actions {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
+    justify-content: flex-end; 
 }
 
 .profile-actions button {
@@ -160,9 +158,6 @@ header {
     background-color: #20955c;
     color: white;
 }
-
-/* Other styles remain unchanged */
-
 
 .post-single{
     display: flex;

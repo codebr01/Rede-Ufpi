@@ -69,10 +69,10 @@ header{
 }
 
 .posts {
-    width: 53%; /* Adjust the width as needed */
+    width: 53%;
     overflow-y: auto;
-    margin: 0 auto; /* Center the posts */
-    max-height: 650px; /* Adjust the max-height as needed */
+    margin: 0 auto;
+    max-height: 650px; 
     padding: 0 20px;
 }
 
@@ -95,7 +95,7 @@ header{
 
 ::-webkit-scrollbar-thumb {
     background-color: rgba(40, 186, 115, 0.5);
-    border-radius: 4px; /* Adjust the border-radius as needed */
+    border-radius: 4px; 
 }
 
 ::-webkit-scrollbar-track {
@@ -278,7 +278,7 @@ a{
 
 .novidades {
     width: 23%;
-    height: 300px;
+    height: 400px;
     margin-right: 20px;
     padding-bottom: 10px;
     background-color: rgba(255, 255, 255, 0.5);
