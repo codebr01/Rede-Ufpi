@@ -56,7 +56,7 @@ def home_page(request):
     posts_list = MainPost.objects.all().order_by('-data')
     comunidades = Comunidades.objects.all()
     
-    paginator = Paginator(posts_list, 4)
+    paginator = Paginator(posts_list, 9999)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     
@@ -109,7 +109,7 @@ def comunidade(request, name):
     comunidade = Comunidades.objects.get(nome=name)
     posts_list = Post.objects.filter(comunidade=comunidade).order_by('-data')
 
-    paginator = Paginator(posts_list, 4)
+    paginator = Paginator(posts_list, 9999)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
 

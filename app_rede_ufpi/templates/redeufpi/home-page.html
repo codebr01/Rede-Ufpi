@@ -38,6 +38,13 @@
     <br>
     <section class="main">
       <div class="wraper-main">
+
+          <div class="novidades">
+            <h2>Novidades</h2>
+            
+          </div>
+
+
         <div class="posts">
           <div class="postBox">
               {% for message in messages %}
@@ -57,32 +64,17 @@
           </div>
           <br>
           {% for post in posts %}
-          <div class="post-single">
-            <div class="post-content">
-              <div class="post-content-text">
-                <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user.first_name}} {{post.user.last_name}}</b>  Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
-                <h3>{{post.conteudo}}</h3>
+          <a href="#" class="post-page"><!--Colocar camino para tela do post-->
+            <div class="post-single">
+              <div class="post-content">
+                <div class="post-content-text">
+                  <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user.first_name}} {{post.user.last_name}}</b>  Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
+                  <h3>{{post.conteudo}}</h3>
+                </div>
               </div>
             </div>
-          </div>
           {% endfor %}
-          <div class="pagination">
-            <span class="step-links">
-              {% if posts.has_previous %}
-                <a class="paginas" href="?page={{ posts.previous_page_number }}"><i class="fas fa-arrow-left"></i></a>
-              {% endif %}
-  
-              {% if posts.paginator.num_pages %}
-                <span class="currente">
-                  {{ posts.number }} de {{ posts.paginator.num_pages }}
-                </span>
-              {% endif %}
-  
-              {% if posts.has_next %}
-                <a class="paginas" href="?page={{ posts.next_page_number }}"><i class="fas fa-arrow-right"></i></a>
-              {% endif %}
-            </span>
-          </div>
+          
         </div>
         <div class="sidebar">
           <div class="comunidades"> 
