@@ -190,3 +190,12 @@ header {
 .post-content-text{
     padding: 10px;
 }
+
+input{
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #e4e3e3;
+}
