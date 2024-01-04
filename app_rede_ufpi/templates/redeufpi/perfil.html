@@ -34,7 +34,7 @@
             </div>
             <div class="notifications">
                 <i class="fa-solid fa-comment"></i>
-                <a href="{% url 'perfil' %}"><i class="fa-solid fa-user"></i>
+                <a href="{{user.username}}"><i class="fa-solid fa-user"></i>
                 <a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
         </div>
@@ -47,36 +47,31 @@
                     <img src="https://via.placeholder.com/150" alt="Profile Image">
                 </div>
                 <div class="profile-details">
-                    <h2>Nome do Usuario</h2>
-                    <p>Email: user@example.com</p>
-                    <p>Nome: User Name</p>
-                    <p>Matricula: 12345678</p>
+                    <h2>{{user.first_name}}</h2>
+                    <p>Email: {{user.email}}</p>
+                    <p>Nome: {{user.first_name}} {{user.last_name}}</p>
+                    <p>Matricula: {{user.username}}</p>
 
                 </div>
             </div>
             <div class="profile-actions">
-                <button>Editar Perfil</button><!--Linkar com a tela editar-->
-                
+                <a href="{% url 'editar-perfil' %}"><button>Editar Perfil</button></a><!--Linkar com a tela editar-->
             </div>
             <h3>Posts</h3>
+            {% for post in posts %}
             <div class="profile-posts">
                 <!-- Posts will be listed here -->
-                <br>
-                
-                
                 <div class="post-single">
                     <div class="post-content">
                         <div class="post-content-text">
-                            <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b></b>  Postado no dia</p>
-                            <h3>teste</h3>
+                            <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b></b>Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
+                            <h3>{{post.conteudo}}</h3>
                         </div>
                     </div>
                 </div>
-                
-                </span>
             </div>
+            {% endfor %}
         </div>
-
         </div>
         </div>
     </body>

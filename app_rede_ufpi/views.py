@@ -55,12 +55,13 @@ def home_page(request):
 
     posts_list = MainPost.objects.all().order_by('-data')
     comunidades = Comunidades.objects.all()
+    user = request.user
     
     paginator = Paginator(posts_list, 9999)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     
-    return render(request, 'redeufpi/home-page.html', {'posts':posts, 'comunidades':comunidades})
+    return render(request, 'redeufpi/home-page.html', {'posts':posts, 'comunidades':comunidades, 'user':user})
 
 @login_required
 def post(request):
@@ -98,8 +99,13 @@ def criar_comunidade(request):
         return render(request, 'redeufpi/criar-comunidade.html')
 
 @login_required
-def perfil(request):
-    return render(request, 'redeufpi/perfil.html')
+def perfil(request, username):
+
+    user = User.objects.get(username=username)
+    print(user.id)
+    posts = MainPost.objects.filter(user=user).order_by('-data')
+
+    return render(request, 'redeufpi/perfil.html', {'user':user, 'posts':posts})
 
 @login_required
 def comunidade(request, name):
@@ -132,3 +138,7 @@ def comunidade_criar_post(request, name):
                 return redirect('comunidade', name=comunidade.nome)
     else:
         return redirect('login')
+    
+@login_required
+def editar_perfil(request):
+    return render(request, 'redeufpi/editar.html')
