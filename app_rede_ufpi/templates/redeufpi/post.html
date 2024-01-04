@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/post.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <title>Rede UFPI - Home</title>
+  <title>Rede UFPI - Post {{post.id}}</title>
 </head>
 <body>
     <header>
@@ -18,8 +18,8 @@
         <div class="home-btn">
           <p>
             <span>
-              <i class="fa-solid fa-house"></i>
-              Home
+              <a href="{% url 'home-page' %}"><i class="fa-solid fa-house"></i></a>
+              Home <i class="fa-solid fa-arrow-right"></i> {{post.id}}
             </span>
           </p>
           <p>
@@ -30,7 +30,7 @@
         </div>
         <div class="notifications">
           <i class="fa-solid fa-comment"></i>
-          <a href="{% url 'perfil' %}"><i class="fa-solid fa-user"></i>
+          <a href="/redeufpi/perfil/{{user.username}}"><i class="fa-solid fa-user"></i>
           <a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
       </div>
@@ -40,8 +40,8 @@
         <div class="post-single">
             <div class="post-content">
                 <div class="post-content-text">
-                <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b></b>  Postado no dia</p>
-                <h3>teste</h3>
+                  <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user.first_name}} {{post.user.last_name}}</b>  Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
+                <h3>{{post.conteudo}}</h3>
                 </div>
             </div>
         </div>
