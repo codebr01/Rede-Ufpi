@@ -1,0 +1,13 @@
+{% load static %}
+
+{% if comunidades is not None %}
+    {% for comunidade in comunidades %}
+        <div class="comunidade-single">
+            <p>{{ comunidade.nome }}</p>
+            <p><button><a href="comunidade/{{comunidade.nome}}">Entrar</a></button></p>
+        </div>
+    {% endfor %}
+    <p><button><a href="{% url 'home-page' %}">Home</a></button></p>
+{% else %}
+    <p>Nenhuma comunidade encontrada</p>
+{% endif %}

@@ -18,8 +18,7 @@
         <div class="home-btn">
           <p>
             <span>
-              <i class="fa-solid fa-house"></i>
-              Home
+              <a href="{% url 'home-page' %}"><i class="fa-solid fa-house"></i></a>
             </span>
           </p>
           <p>
@@ -64,7 +63,7 @@
           </div>
           <br>
           {% for post in posts %}
-          <a href="#" class="post-page"><!--Colocar caminho para tela do post-->
+          <a href="post/{{post.id}}" class="post-page"><!--Colocar caminho para tela do post-->
             <div class="post-single">
               <div class="post-content">
                 <div class="post-content-text">
@@ -90,7 +89,7 @@
               <p>Não há nenhuma comunidade</p>
             {% endif %}
             <button class="view-all"><a href="{% url 'criar-comunidade' %}">Criar Comunidade</a></button>
-            <button class="view-all">Ver todos</button>
+            <p><button class="view-all"><a href="{% url 'comunidades' %}">Ver todos</a></button></p>
           </div>
         </div>
       </div>
