@@ -8,10 +8,10 @@ nav{
 
 a{
     color: #FFF;
-    margin-right: 130px;
+    margin-right: 170px;
     margin-left: 120px;
 
-    font-family: Source Code Pro;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 50px;
     font-style: normal;
     font-weight: 400;
@@ -28,7 +28,7 @@ a:hover{
 p{
     
     color: #FFF;
-    font-family: Source Code Pro;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -38,7 +38,7 @@ p{
 h1{
     
     color: #FFF;
-    font-family: Source Code Pro;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
     margin-top: 100px;
     margin-right: 10px;
@@ -57,4 +57,42 @@ img{
 }
 li{
     list-style: none;
+} 
+
+@media (max-width: 768px) {
+    a {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    a {
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    img {
+        width: 310px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
 }

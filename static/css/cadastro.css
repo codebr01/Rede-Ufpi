@@ -1,72 +1,123 @@
-@charset "UTF-8";
-
-body{
-    background: #8293F0;
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
-div{
+.site {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -25%);
+}
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 45px;
+    color: #eee;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+.container {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, rgb(44, 89, 120), rgb(27, 67, 115), rgb(2, 27, 48));
+    background-size: cover;
+    color: #eee;
+    position: relative;
     
-    width: 750px;
-    height: 530px;
-    flex-shrink: 0;
-    margin: auto;
-
-    border-radius: 40px;
-    background: #F0EDED;
 }
 
+.login-container {
+    background-color: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(2px);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    border: 1.5px solid #eee;
+    position: relative;
+    z-index: 2;
+}
 
-h1{
-    margin-top: 80px;
+h2 {
     text-align: center;
-    flex-shrink: 0;
-    color: #000;
-
-    padding-bottom: 10px;
-    font-family: Source Code Pro;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: uppercase;
-    box-shadow: 0px 1px 0px;
-    
-}
-form{
-
-flex-shrink: 0;
-color: #000;
-
-margin-left: 50px;
-margin-right: 50px;
-font-family: Source Code Pro;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-input{
-
-    margin-right: 100px;
-    margin-top: 40px;
-    width: 410px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 30px;
-    background: #BFBFE6;
+    margin-bottom: 20px;
 }
 
-input#email{
-    margin-left: 50px;
-}
-input#senha{
-    margin-left: 48px;
+.input-group {
+    margin-bottom: 20px;
 }
 
-button{
-    margin-top: 65px;
-    margin-left: 265px;
-    margin-right: 265px;
+.input-group input {
+    background-color: transparent;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="email"],
+input[type="password"],input[type="text"] {
+    width: 95%;
     padding: 10px;
-    border-radius: 30px;
-    background: #BFBFE6;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #e4e3e3;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28ba73;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1b784b;
+}
+
+.tem-conta{
+    display: inline-block;
+    text-align: right;
+    text-decoration: none;
+    color: #eee;
+    margin-bottom: 10px;
+}
+.tem-conta:hover{
+    cursor: pointer;
+    color: #28ba73;;
+}
+
+@media screen and (max-width: 800px){
+    .container {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: radial-gradient(circle, rgb(44, 89, 120), rgb(27, 67, 115), rgb(2, 27, 48));
+        background-size: cover;
+        color: #eee;
+        position: relative;
+        padding: 0;
+    }
+    .site {
+        position: absolute;
+        z-index: 1;
+    }
+    h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 30px;
+        color: #eee;
+        margin-bottom: 10px;
+        font-weight: 300;
+    }
 }
