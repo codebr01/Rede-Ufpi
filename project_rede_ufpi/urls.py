@@ -9,7 +9,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('redeufpi/login', views.login_view, name='login'),
     path('redeufpi/cadastro', views.cadastro, name='cadastro'),
-    # path('redeufpi/comunidades', views.comunidades, name='comunidades'),#exibir todas as comunidades
+    path('redeufpi/comunidades', views.comunidades, name='comunidades'),
     path('redeufpi/home-page', views.home_page, name='home-page'),
     path('redeufpi/post', views.post, name='post'),
     path('logout/', views.logout_view, name='logout'),
@@ -18,4 +18,5 @@ urlpatterns = [
     path('redeufpi/comunidade/<str:name>', views.comunidade, name='comunidade'),
     path('redeufpi/comunidade/<str:name>/criar-post', views.comunidade_criar_post, name='criar-post'),
     path('redeufpi/editar-perfil', views.editar_perfil, name='editar-perfil'),
+    path('redeufpi/post/<int:id>', views.postagem, name='post-public'),
 ]
