@@ -18,7 +18,7 @@
         <div class="home-btn">
           <p>
             <span>
-              <a href="{% url 'home-page' %}"><i class="fa-solid fa-house"></i></a>
+              <i class="fa-solid fa-house"></i></a> Home
             </span>
           </p>
           <p>
@@ -42,8 +42,19 @@
             <h2>Novidades</h2>
             
           </div>
+          <div class="rede-social">
+            <h2>Redes sociais de ajuda</h2>
+            <div class="rede-single">
+              <a href="https://www.instagram.com/alunoufpi/" target="_blank"><p><i class="fa-brands fa-instagram"></i> alunoufpi (instagram)</p></a>
+              
+            </div>
+            <div class="rede-single">
+              <a href="https://www.instagram.com/casi.ufpi/" target="_blank"><i class="fa-brands fa-instagram"></i> casi.ufpi (instagram)</a>
+              
+            </div>
+          </div>
 
-
+          
         <div class="posts">
           <div class="postBox">
               {% for message in messages %}
@@ -78,16 +89,18 @@
         <div class="sidebar">
           <div class="comunidades"> 
             <h2>Comunidades</h2>
-            {% if comunidades %}
-              {% for comunidade in comunidades %}
-              <div class="comunidade-single">
-                <p>{{ comunidade.nome }}</p>
-                <p><button><a href="comunidade/{{comunidade.nome}}">Entrar</a></button></p>
-              </div>
-              {% endfor %}
-            {% else %}
-              <p>Não há nenhuma comunidade</p>
-            {% endif %}
+            <div class="comunidade-container">
+              {% if comunidades %}
+                {% for comunidade in comunidades %}
+                <div class="comunidade-single">
+                  <p>{{ comunidade.nome }}</p>
+                  <p><button><a href="comunidade/{{comunidade.nome}}">Entrar</a></button></p>
+                </div>
+                {% endfor %}
+              {% else %}
+                <p>Não há nenhuma comunidade</p>
+              {% endif %}
+            </div>
             <button class="view-all"><a href="{% url 'criar-comunidade' %}">Criar Comunidade</a></button>
             <p><button class="view-all"><a href="{% url 'comunidades' %}">Ver todos</a></button></p>
           </div>

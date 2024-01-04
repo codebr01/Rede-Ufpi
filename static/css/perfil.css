@@ -1,8 +1,7 @@
-/* Existing styles remain unchanged */
-
 body {
     background: radial-gradient(circle, rgb(44, 89, 120), rgb(27, 67, 115), rgb(2, 27, 48));
 }
+
 
 header {
     padding-top: 15px;
@@ -71,6 +70,8 @@ header {
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
+    max-height: 600px;
+    overflow-y: auto;
 }
 
 .profile-info {
@@ -104,6 +105,7 @@ header {
     display: inline-block;
     font-size: 16px;
     transition-duration: 0.4s;
+    margin-right: 10px;
 }
 
 .profile-actions button:hover {
@@ -112,10 +114,9 @@ header {
 }
 
 .profile-posts {
-    max-height: 400px; 
-    overflow-y: auto;
     margin-top: 20px;
 }
+
 
 .post-single {
     display: flex;
@@ -152,6 +153,7 @@ header {
     display: inline-block;
     font-size: 16px;
     transition-duration: 0.4s;
+
 }
 
 .profile-actions button:hover {
@@ -191,6 +193,8 @@ header {
     padding: 10px;
 }
 
+
+
 input{
     width: 400px;
     padding: 10px;
@@ -198,4 +202,22 @@ input{
     border-radius: 5px;
     font-size: 16px;
     color: #e4e3e3;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(40, 186, 115, 0.5);
+    border-radius: 4px; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
