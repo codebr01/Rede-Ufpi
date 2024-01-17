@@ -281,7 +281,7 @@ a{
     color: black;
 }
 
-.novidades {
+.topicos {
     width: 23%;
     height: 320px;
     margin-right: 20px;
@@ -292,26 +292,12 @@ a{
     border-radius: 5px;
 }
 
-.novidades h2 {
+.topicos h2 {
     color: rgb(255, 255, 255);
     text-align: center;
     padding: 25px;
     background-color: rgb(27, 67, 115);
     border-radius: 5px;
-}
-.rede-social {
-    width: 22%;
-    height: 320px;
-    margin-left: 31px;
-    margin-bottom: 10px; 
-    padding-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(2px);
-    border: 1.5px solid #eee;
-    border-radius: 5px;
-    position: absolute; /* Define a posição fixa */
-    bottom: 0; /* Alinha com a parte inferior */
-    left: 0; /* Alinha com a parte esquerda */
 }
 
 .rede-social h2 {
@@ -322,14 +308,14 @@ a{
     border-radius: 5px;
 }
 
-.rede-single{
+.topico-single{
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
     border-bottom: 1px solid #ccc;
 }
 
-.rede-single a{
+.topico-single a{
     color: black;
     text-decoration: none;
 }
