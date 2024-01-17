@@ -13,6 +13,10 @@ header{
     background-color: rgba(255, 255, 255, 0.5);
 }
 
+button:hover{
+    background-color: #1b784b;
+}
+
 .wraper-header, .wraper-main{
     width: 100%;
     padding: 0 10px;
@@ -105,7 +109,6 @@ header{
 
 .sidebar{
     width:23%;
-    
 }
 
 .comunidades{
@@ -125,12 +128,17 @@ header{
     background-color: rgb(27, 67, 115);
 }
 
+.comunidades p{
+    font-size: large;
+    padding-left: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .comunidade-single{
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
     border-bottom: 1px solid #ccc;
-
 }
 
 
@@ -141,7 +149,11 @@ header{
     border: 0;
     width: 60px;
     height: 20px;
-    
+    cursor: pointer;
+}
+
+.comunidade-single button:hover{
+    background-color: #1b784b;
 }
 
 .comunidade-single a{
@@ -167,6 +179,10 @@ header{
     background-color: #28ba73;
     color: white;
     border-radius: 10px;
+    cursor: pointer;
+}
+.comunidades button.view-all:hover{
+    background-color: #1b784b;
 }
 
 .comunidades button.criar-comunidade{
@@ -179,7 +195,9 @@ header{
     background-color: #28ba73;
     color: white;
     border-radius: 10px;
+    cursor: pointer;
 }
+
 
 
 
@@ -236,6 +254,7 @@ header{
     background-color: #28ba73;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
     
 }
 
@@ -283,7 +302,7 @@ a{
 
 .topicos {
     width: 23%;
-    height: 320px;
+    height: 600px;
     margin-right: 20px;
     padding-bottom: 10px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -300,12 +319,21 @@ a{
     border-radius: 5px;
 }
 
-.rede-social h2 {
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 25px;
-    background-color: rgb(27, 67, 115);
-    border-radius: 5px;
+.topicos button{
+    width: 90%;
+    text-decoration: none;
+    display: block;
+    margin: 10px;
+    height: 30px;
+    border: 0;
+    background-color: #28ba73;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.topicos button:hover{
+    background-color: #1b784b;
 }
 
 .topico-single{
@@ -320,4 +348,56 @@ a{
     text-decoration: none;
 }
 
+
+.topico-container{
+    max-height: 470px;
+    overflow-y: auto;
+}
+
+.comunidades-container{
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.todas-comunidades{
+    padding-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    border: 1.5px solid #eee;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.todas-comunidades h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 25px;
+    background-color: rgb(27, 67, 115);
+    
+}
+
+.todas-comunidades p{
+    font-size: large;
+    padding-left: 10px;
+}
+
+.todas-comunidades button.voltar{
+    width: 90%;
+    text-decoration: none;
+    display: block;
+    margin: 10px;
+    height: 30px;
+    border: 0;
+    background-color: #28ba73;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.sidebar-comunidades{
+    width: 35%;
+    margin-left: 35%;
+    display: flex;
+}
 

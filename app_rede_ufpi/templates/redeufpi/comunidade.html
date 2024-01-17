@@ -39,13 +39,20 @@
     <br>
     <section class="main">
       <div class="wraper-main">
-        <div class="novidades">
-          <h2>Novidades</h2>
-          
-        </div>
-        <div class="rede-social">
-          <h2>Redes sociais de ajuda</h2>
-          
+        <div class="topicos">
+          <h2>Tópicos</h2>
+          <div class="topico-container">
+              <div class="topico-single">
+                <a href="https://www.instagram.com/alunoufpi/" target="_blank"><p><i class="fa-brands fa-instagram"></i> alunoufpi (instagram)</p></a>
+                
+              </div>
+              <div class="topico-single">
+                <a href="https://www.instagram.com/casi.ufpi/" target="_blank"><i class="fa-brands fa-instagram"></i> casi.ufpi (instagram)</a>
+                
+              </div>
+              
+            </div>
+            <button>Criar um topico</button>
         </div>
 
         <div class="posts">
@@ -67,6 +74,7 @@
           </div>
           <br>
           {% for post in posts %}
+          <a href="post/{{post.id}}" class="post-page">
           <div class="post-single">
             <div class="post-content">
               <div class="post-content-text">
@@ -81,6 +89,7 @@
         <div class="sidebar">
           <div class="comunidades">
             <h2>Comunidades</h2>
+            <div class="comunidade-container">
             {% if comunidades %}
               {% for comunidade in comunidades %}
                 <div class="comunidade-single">
@@ -91,6 +100,7 @@
             {% else %}
               <p>Nenhuma comunidade encontrada</p>
             {% endif %}
+          </div>
             <p><button class="view-all"><a href="{% url 'comunidades' %}">Ver todos</a></button></p>
           </div>
         </div>

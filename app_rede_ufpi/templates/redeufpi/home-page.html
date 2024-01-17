@@ -40,15 +40,18 @@
 
           <div class="topicos">
             <h2>Tópicos</h2>
-            <div class="topico-single">
-              <a href="https://www.instagram.com/alunoufpi/" target="_blank"><p><i class="fa-brands fa-instagram"></i> alunoufpi (instagram)</p></a>
-              
-            </div>
-            <div class="topico-single">
-              <a href="https://www.instagram.com/casi.ufpi/" target="_blank"><i class="fa-brands fa-instagram"></i> casi.ufpi (instagram)</a>
-              
-            </div>
-            
+            <div class="topico-container">
+                <div class="topico-single">
+                  <a href="https://www.instagram.com/alunoufpi/" target="_blank"><p><i class="fa-brands fa-instagram"></i> alunoufpi (instagram)</p></a>
+                  
+                </div>
+                <div class="topico-single">
+                  <a href="https://www.instagram.com/casi.ufpi/" target="_blank"><i class="fa-brands fa-instagram"></i> casi.ufpi (instagram)</a>
+                  
+                </div>
+                
+              </div>
+              <button>Criar um topico</button>
           </div>
          
         <div class="posts">
@@ -97,8 +100,8 @@
                 <p>Não há nenhuma comunidade</p>
               {% endif %}
             </div>
-            <button class="view-all"><a href="{% url 'criar-comunidade' %}">Criar Comunidade</a></button>
-            <p><button class="view-all"><a href="{% url 'comunidades' %}">Ver todos</a></button></p>
+            <a href="{% url 'criar-comunidade' %}"><button class="view-all">Criar Comunidade</button></a>
+            <a href="{% url 'comunidades' %}"><button class="view-all">Ver todos</button></a>
           </div>
         </div>
       </div>
