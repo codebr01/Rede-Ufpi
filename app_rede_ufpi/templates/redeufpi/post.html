@@ -47,50 +47,31 @@
         </div>
         <br>
         <div class="postBox">
-                <div class="postbox__input">
-                    <input type="text" name = "conteudo" placeholder="Comentar"/>
-                    <button class="postBox__postButton">Comentar</button>
-                </div>
-            </form>
-        </div>
+          <form method="post" action="{% url 'criar_comentario_main' post.id %}">
+            {% csrf_token %}
+            <div class="postbox__input">
+                <input type="text" name="conteudo" placeholder="Comentar"/>
+                <button type="submit" class="postBox__postButton">Comentar</button>
+            </div>
+        </form>
+      </div>
         <br>
         <!-- Add this structure around your comment section -->
-<div class="comments-container">
-    <!-- Your comment sections go here -->
-    <div class="coment-single">
-        <div class="coment-content">
-            <div class="coment-content-text">
-                <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b></b>  Postado no dia</p>
-                <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dolores, veniam culpa totam praesentium ipsam accusamus odio excepturi et adipisci commodi perspiciatis, dolorem ratione quis repellat quam similique molestias voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur expedita sint neque magni distinctio necessitatibus assumenda at iure quaerat? Hic neque ex qui facere inventore earum, voluptatem quaerat incidunt maxime. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad tempore obcaecati voluptatem velit expedita doloribus sed minus rem temporibus laudantium harum sint voluptate nemo, tempora a quos aperiam cupiditate ipsam.</h3>
-            </div>
-        </div>
-    </div>
-    <div class="coment-single">
-      <div class="coment-content">
-          <div class="coment-content-text">
-              <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b></b>  Postado no dia</p>
-              <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dolores, veniam culpa totam praesentium ipsam accusamus odio excepturi et adipisci commodi perspiciatis, dolorem ratione quis repellat quam similique molestias voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur expedita sint neque magni distinctio necessitatibus assumenda at iure quaerat? Hic neque ex qui facere inventore earum, voluptatem quaerat incidunt maxime. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad tempore obcaecati voluptatem velit expedita doloribus sed minus rem temporibus laudantium harum sint voluptate nemo, tempora a quos aperiam cupiditate ipsam.</h3>
+    <div class="comments-container">
+      <!-- Your comment sections go here -->
+      {% for comment in comments %}
+          <div class="comment-single">
+              <div class="comment-content">
+                  <div class="comment-content-text">
+                      <p><i class="fa-solid fa-user"></i> <b>{{ comment.user.first_name }} {{ comment.user.last_name }}</b> Postado no dia {{ comment.data|date:"d/m/Y H:i" }}</p>
+                      <h3>{{ comment.conteudo }}</h3>
+                  </div>
+              </div>
           </div>
-      </div>
+      {% endfor %}
   </div>
-  <div class="coment-single">
-    <div class="coment-content">
-        <div class="coment-content-text">
-            <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b></b>  Postado no dia</p>
-            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dolores, veniam culpa totam praesentium ipsam accusamus odio excepturi et adipisci commodi perspiciatis, dolorem ratione quis repellat quam similique molestias voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur expedita sint neque magni distinctio necessitatibus assumenda at iure quaerat? Hic neque ex qui facere inventore earum, voluptatem quaerat incidunt maxime. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad tempore obcaecati voluptatem velit expedita doloribus sed minus rem temporibus laudantium harum sint voluptate nemo, tempora a quos aperiam cupiditate ipsam.</h3>
-        </div>
-    </div>
-</div>
-<div class="coment-single">
-  <div class="coment-content">
-      <div class="coment-content-text">
-          <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b></b>  Postado no dia</p>
-          <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis dolores, veniam culpa totam praesentium ipsam accusamus odio excepturi et adipisci commodi perspiciatis, dolorem ratione quis repellat quam similique molestias voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur expedita sint neque magni distinctio necessitatibus assumenda at iure quaerat? Hic neque ex qui facere inventore earum, voluptatem quaerat incidunt maxime. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad tempore obcaecati voluptatem velit expedita doloribus sed minus rem temporibus laudantium harum sint voluptate nemo, tempora a quos aperiam cupiditate ipsam.</h3>
-      </div>
-  </div>
-</div>  
-</div>
 
-    </div>
+
+  </div>
 </body>
 </html>

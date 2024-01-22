@@ -1,11 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
-from .models import MainPost, Comunidades, Post
+from .models import MainPost, Comunidades, Post, Comentario
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib import messages
+from .forms import ComentarioForm
 
 @login_required
 def home(request):
@@ -83,7 +84,8 @@ def post(request):
 def postagem(request, id):
     post = MainPost.objects.get(id=id)
     user = request.user
-    return render(request, 'redeufpi/post.html', {'post':post, 'user':user})
+    comments = Comentario.objects.filter(main_post=post)
+    return render(request, 'redeufpi/post.html', {'post':post, 'user':user, 'comments': comments})
 
 @login_required
 def perfil(request, username):
@@ -146,3 +148,25 @@ def comunidade_criar_post(request, name):
 def comunidades(request):
     comunidades = Comunidades.objects.all()
     return render(request, 'redeufpi/comunidades.html', {'comunidades':comunidades})
+
+@login_required
+def criar_comentario_main(request, post_id):
+    post = get_object_or_404(MainPost, id=post_id)
+    
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        
+        if form.is_valid():
+            comentario = form.save(commit=False)
+            comentario.user = request.user
+            comentario.main_post = post
+            comentario.save()
+            
+            messages.success(request, 'Comentário postado com sucesso!')
+            return redirect('postagem', id=post.id)
+        else:
+            messages.error(request, 'Erro ao postar o comentário. Verifique o formulário.')
+    else:
+        form = ComentarioForm()
+
+    return render(request, 'post.html', {'post': post, 'form': form})

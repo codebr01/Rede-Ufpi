@@ -1,5 +1,5 @@
 from django.urls import path
-from app_rede_ufpi import views
+from app_rede_ufpi import views 
 from django.contrib import admin
 from django.urls import path, include
 
@@ -19,4 +19,6 @@ urlpatterns = [
     path('redeufpi/comunidade/<str:name>/criar-post', views.comunidade_criar_post, name='criar-post'),
     path('redeufpi/editar-perfil', views.editar_perfil, name='editar-perfil'),
     path('redeufpi/post/<int:id>', views.postagem, name='post-public'),
+    path('redeufpi/post/<int:post_id>/', views.criar_comentario_main, name='criar_comentario_main'),
+    path('postagem/<int:id>/', views.postagem, name='postagem'),
 ]
