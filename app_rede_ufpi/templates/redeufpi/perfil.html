@@ -22,18 +22,18 @@
                 <p>
                     <span>
                         <a href="{% url 'home-page' %}"><i class="fa-solid fa-house"></i></a>
-                        Home <i class="fa-solid fa-arrow-right"></i> Perfil
-                    </span>
+                        <p class="palavra">Home <i class="fa-solid fa-arrow-right"></i> Perfil
+                    </span></p>
                 </p>
                 <p>
 
                 </p>
             </div>
             <div class="search">
-                <input type="text" placeholder="O que você está procurando?">
+                <input type="text" placeholder="Procurar no perfil">
             </div>
             <div class="notifications">
-                <i class="fa-solid fa-comment"></i>
+                <a href="{% url 'comunidades' %}"><i class="fa-solid fa-comment"></i></a>
                 <a href="{{user.username}}"><i class="fa-solid fa-user"></i>
                 <a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
@@ -66,11 +66,12 @@
                     <div class="post-content">
                         <div class="post-content-text">
                             <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b></b>Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
-                            <h3>{{post.conteudo}}</h3>
+                            <h5>{{post.conteudo}}</h5>
                         </div>
                     </div>
                 </div>
             </div>
+
             {% endfor %}
             
         </div>
