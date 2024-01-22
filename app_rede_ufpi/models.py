@@ -30,7 +30,6 @@ class MainPost(models.Model):
     data = models.DateTimeField(
         auto_now_add=True
     )
-
 class Comunidades(models.Model):
 
     id = models.AutoField(
@@ -62,3 +61,20 @@ class Post(models.Model):
     data = models.DateTimeField(
         auto_now_add=True
     )
+
+class Comentario(models.Model):
+    id = models.AutoField(primary_key=True)
+    conteudo = models.TextField()
+    user = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE
+    )
+    data = models.DateTimeField(
+        auto_now_add=True
+    )
+    main_post = models.ForeignKey(
+        'MainPost',
+        on_delete=models.CASCADE,
+        related_name='comments'
+    )
+
