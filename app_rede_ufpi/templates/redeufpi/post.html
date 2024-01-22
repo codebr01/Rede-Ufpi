@@ -60,9 +60,9 @@
     <div class="comments-container">
       <!-- Your comment sections go here -->
       {% for comment in comments %}
-          <div class="comment-single">
-              <div class="comment-content">
-                  <div class="comment-content-text">
+          <div class="coment-single">
+              <div class="coment-content">
+                  <div class="coment-content-text">
                       <p><i class="fa-solid fa-user"></i> <b>{{ comment.user.first_name }} {{ comment.user.last_name }}</b> Postado no dia {{ comment.data|date:"d/m/Y H:i" }}</p>
                       <h3>{{ comment.conteudo }}</h3>
                   </div>
