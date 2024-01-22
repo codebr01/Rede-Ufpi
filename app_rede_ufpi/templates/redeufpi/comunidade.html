@@ -19,19 +19,17 @@
           <p>
             <span>
               <a href="{% url 'home-page' %}"><i class="fa-solid fa-house"></i></a>
-              Home <i class="fa-solid fa-arrow-right"></i> {{comunidade.nome}}
-            </span>
+              <p class="palavra">Home <i class="fa-solid fa-arrow-right"></i> {{comunidade.nome}}
+            </span></p>
           </p>
-          <p>
-            <i class="fa-solid fa-chevron-down"></i>
-          </p>
+
         </div>
         <div class="search">
-          <input type="text" placeholder="O que você está procurando?">
+          <input type="text" placeholder="Procurar na '{{comunidade.nome}}'">
         </div>
         <div class="notifications">
-          <i class="fa-solid fa-comment"></i>
-          <a href="/redeufpi/perfil/{{user.username}}"><i class="fa-solid fa-user"></i>
+          <a href="{% url 'comunidades' %}"><i class="fa-solid fa-comment"></i></a>
+          <a href="/redeufpi/perfil/{{user.username}}"><i class="fa-solid fa-user"></i></a>
           <a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
       </div>

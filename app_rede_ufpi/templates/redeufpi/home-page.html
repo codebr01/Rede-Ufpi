@@ -18,17 +18,17 @@
         <div class="home-btn">
           <p>
             <span>
-              <i class="fa-solid fa-house"></i></a> Home
+              <i class="fa-solid fa-house"></i><p class="palavra">Home</p>
             </span>
           </p>
           <p>
           </p>
         </div>
         <div class="search">
-          <input type="text" placeholder="O que você está procurando?">
+          <input type="text" placeholder="Procurar...">
         </div>
         <div class="notifications">
-          <i class="fa-solid fa-comment"></i>
+          <a href="{% url 'comunidades' %}"><i class="fa-solid fa-comment"></i></a>
           <a href="perfil/{{user.username}}"><i class="fa-solid fa-user"></i>
           <a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
@@ -51,7 +51,7 @@
                 </div>
                 
               </div>
-              <button>Criar um topico</button>
+              <button class="criar-topico">Criar um topico</button>
           </div>
          
         <div class="posts">
@@ -77,7 +77,7 @@
             <div class="post-single">
               <div class="post-content">
                 <div class="post-content-text">
-                  <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user.first_name}} {{post.user.last_name}}</b>  Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
+                  <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user.first_name}} {{post.user.last_name}}</b>  Postado dia {{ post.data|date:"d/m/Y H:i" }}</p>
                   <h3>{{post.conteudo}}</h3>
                 </div>
               </div>

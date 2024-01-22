@@ -8,6 +8,7 @@ header {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
+
 .wraper-header,
 .wraper-main {
     width: 100%;
@@ -220,4 +221,42 @@ input{
 a{
     text-decoration: none;
     color: black;
+}
+@media screen and (max-width: 800px){
+
+    .topicos{
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+    .palavra{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
+    p{
+        font-size: medium;
+    }
+    i{
+        font-size: medium;
+    }
+    .home-btn{
+        display: flex;
+        width: 10%;
+        size: 10px;
+    }
+    .search{
+        margin-right: 30px;
+        width: 53%;
+    }
+    
+    .posts {
+        width: 100%;
+        overflow-y: auto;
+        margin: 0 auto;
+        max-height: 650px; 
+        padding: 0 20px;
+    }
 }

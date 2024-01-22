@@ -355,7 +355,7 @@ a{
 }
 
 .comunidades-container{
-    max-height: 500px;
+    max-height: 420px;
     overflow-y: auto;
 }
 
@@ -394,10 +394,87 @@ a{
     cursor: pointer;
 
 }
+.criar-comunidade{
+    width: 90%;
+    text-decoration: none;
+    display: block;
+    margin: 10px;
+    height: 30px;
+    border: 0;
+    background-color: #28ba73;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
 
+}
 .sidebar-comunidades{
     width: 35%;
     margin-left: 35%;
     display: flex;
+    margin-top: 10px;
 }
 
+.topicos-celular{
+    display: none;
+}
+
+@media screen and (max-width: 800px){
+
+    .topicos{
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+    .palavra{
+        display: none;
+    }
+    img{
+        display: none;
+    }
+
+    p{
+        font-size: small;
+    }
+    i{
+        font-size: medium;
+    }
+    .home-btn{
+        display: flex;
+        width: 10%;
+        size: 10px;
+    }
+    .search{
+        margin-right: 30px;
+        width: 53%;
+    }
+    
+    .posts {
+        width: 100%;
+        overflow-y: auto;
+        margin: 0 auto;
+        max-height: 650px; 
+        padding: 0 20px;
+    }
+
+    .sidebar-comunidades{
+        width: 80%;
+        display: flex;
+        margin-left: 10%;
+        margin-top: 10px;
+    }
+    .comunidades-container{
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    .topicos-celular {
+        display: contents;
+    }
+    .topico-container{
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    
+    
+}
