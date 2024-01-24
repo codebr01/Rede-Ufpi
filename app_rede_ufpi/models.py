@@ -78,3 +78,19 @@ class Comentario(models.Model):
         related_name='comments'
     )
 
+class ComentariosComunidade(models.Model):
+    id = models.AutoField(primary_key=True)
+    conteudo = models.TextField()
+    user = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE
+    )
+    data = models.DateTimeField(
+        auto_now_add=True
+    )
+    comunidade_post = models.ForeignKey(
+        'Post',
+        on_delete=models.CASCADE,
+        related_name='commentscomu'
+    )
+

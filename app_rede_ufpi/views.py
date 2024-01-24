@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
-from .models import MainPost, Comunidades, Post, Comentario
+from .models import MainPost, Comunidades, Post, Comentario, ComentariosComunidade
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib import messages
-from .forms import ComentarioForm
+from .forms import ComentarioForm, ComentarioForm2
 
 @login_required
 def home(request):
@@ -151,6 +151,7 @@ def comunidades(request):
 
 @login_required
 def criar_comentario_main(request, post_id):
+    print("Teste5678")
     post = get_object_or_404(MainPost, id=post_id)
     
     if request.method == 'POST':
@@ -170,3 +171,35 @@ def criar_comentario_main(request, post_id):
         form = ComentarioForm()
 
     return render(request, 'post.html', {'post': post, 'form': form})
+
+@login_required
+def comunidade_postagem(request, id):
+    post = Post.objects.get(id=id)
+    user = request.user
+    commentscomu = ComentariosComunidade.objects.filter(comunidade_post=post)
+    return render(request, 'redeufpi/comunidade_post.html', {'post': post, 'user': user, 'commentscomu': commentscomu})
+
+@login_required
+def criar_comentario(request, post_id):
+    print("Teste2")
+    post = get_object_or_404(Post, id=post_id)
+    
+    if request.method == 'POST':
+        print("teste3")
+        form = ComentarioForm2(request.POST)
+        
+        if form.is_valid():
+            print("teste4")
+            comentario = form.save(commit=False)
+            comentario.user = request.user
+            comentario.comunidade_post = post
+            comentario.save()
+            
+            messages.success(request, 'Comentário postado com sucesso!')
+            return redirect('comunidade_postagem', id=post.id)
+        else:
+            messages.error(request, 'Erro ao postar o comentário. Verifique o formulário.')
+    else:
+        form = ComentarioForm2()
+
+    return render(request, 'comunidade_post.html', {'post': post, 'form': form})

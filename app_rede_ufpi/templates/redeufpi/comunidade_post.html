@@ -19,7 +19,7 @@
           <p>
             <span>
               <a href="{% url 'home-page' %}"><i class="fa-solid fa-house"></i></a>
-              <p class="palavra">Home <i class="fa-solid fa-arrow-right"></i> {{post.id}}</p>
+              <p class="palavra">Home <i class="fa-solid fa-arrow-right"></i> {{ post.id }}</p>
             </span>
           </p>
           <p>
@@ -30,7 +30,7 @@
         </div>
         <div class="notifications">
           <i class="fa-solid fa-comment"></i>
-          <a href="/redeufpi/perfil/{{user.username}}"><i class="fa-solid fa-user"></i></a>
+          <a href="/redeufpi/perfil/{{ user.username }}"><i class="fa-solid fa-user"></i></a>
           <a href="{% url 'logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
       </div>
@@ -40,37 +40,36 @@
         <div class="post-single">
             <div class="post-content">
                 <div class="post-content-text">
-                  <p><i class="fa-solid fa-user"></i><!--Exemplo de onde fica a foto--> <b>{{post.user.first_name}} {{post.user.last_name}}</b>  Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
+                  <p><i class="fa-solid fa-user"></i> <b>{{ post.user.first_name }} {{ post.user.last_name }}</b> Postado no dia {{ post.data|date:"d/m/Y H:i" }}</p>
                 <h3>{{post.conteudo}}</h3>
                 </div>
             </div>
         </div>
         <br>
         <div class="postBox">
-          <form method="post" action="{% url 'criar_comentario_main' post.id %}">
+          <form method="post" action="{% url 'criar_comentario' post.id %}"> 
             {% csrf_token %}
             <div class="postbox__input">
                 <input type="text" name="conteudo" placeholder="Comentar"/>
                 <button type="submit" class="postBox__postButton">Comentar</button>
             </div>
-        </form>
-      </div>
+          </form>
+        </div>
         <br>
         <!-- Add this structure around your comment section -->
-    <div class="comments-container">
-      <!-- Your comment sections go here -->
-      {% for comment in comments %}
-          <div class="comment-single">
+        <div class="comments-container">
+          <!-- Your comment sections go here -->
+          {% for comment in commentscomu %}
+            <div class="comment-single">
               <div class="comment-content">
-                  <div class="comment-content-text">
-                      <p><i class="fa-solid fa-user"></i> <b>{{ comment.user.first_name }} {{ comment.user.last_name }}</b> Postado no dia {{ comment.data|date:"d/m/Y H:i" }}</p>
-                      <h3>{{ comment.conteudo }}</h3>
-                  </div>
+                <div class="comment-content-text">
+                  <p><i class="fa-solid fa-user"></i> <b>{{ comment.user.first_name }} {{ comment.user.last_name }}</b> Postado no dia {{ comment.data|date:"d/m/Y H:i" }}</p>
+                  <h3>{{ comment.conteudo }}</h3>
+                </div>
               </div>
-          </div>
-      {% endfor %}
-  </div>
-
-  </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
