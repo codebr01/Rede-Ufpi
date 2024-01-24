@@ -21,4 +21,7 @@ urlpatterns = [
     path('redeufpi/post/<int:id>', views.postagem, name='post-public'),
     path('redeufpi/post/<int:post_id>/', views.criar_comentario_main, name='criar_comentario_main'),
     path('postagem/<int:id>/', views.postagem, name='postagem'),
+    path('redeufpi/comunidade/post/<int:id>', views.comunidade_postagem, name='comunidade-post-public'),
+    path('redeufpi/comunidade/post/<int:post_id>', views.criar_comentario, name='criar_comentario'),
+    path('comunidade_postagem<int:id>/', views.comunidade_postagem, name='comunidade_postagem'),
 ]
