@@ -151,7 +151,6 @@ def comunidades(request):
 
 @login_required
 def criar_comentario_main(request, post_id):
-    print("Teste5678")
     post = get_object_or_404(MainPost, id=post_id)
     
     if request.method == 'POST':
